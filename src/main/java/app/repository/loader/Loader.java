@@ -42,37 +42,37 @@ public class Loader {
         }
 
         Menu menu1 = new Menu();
-        menu1.setUrl("/");
-        menu1.setName("Главная");
+        menu1.setUrl("");
+        menu1.setName("Главная (M)");
         menu1.setRoleId(roleMentor);
 
         Menu menu2 = new Menu();
-        menu2.setUrl("/schedules");
+        menu2.setUrl("schedules");
         menu2.setName("Записи");
         menu2.setRoleId(roleMentor);
 
         Menu menu3 = new Menu();
-        menu3.setUrl("/mentors");
+        menu3.setUrl("mentors");
         menu3.setName("Наставники");
         menu3.setRoleId(roleMentor);
 
         Menu menu4 = new Menu();
-        menu4.setUrl("/settings");
+        menu4.setUrl("settings");
         menu4.setName("Общие настройки");
         menu4.setRoleId(roleMentor);
 
         Menu menu11 = new Menu();
-        menu11.setUrl("/");
-        menu11.setName("Главная");
+        menu11.setUrl("");
+        menu11.setName("Главная (C)");
         menu11.setRoleId(roleClient);
 
         Menu menu12 = new Menu();
-        menu12.setUrl("/");
+        menu12.setUrl("");
         menu12.setName("Записаться");
         menu12.setRoleId(roleClient);
 
         Menu menu13 = new Menu();
-        menu13.setUrl("/");
+        menu13.setUrl("");
         menu13.setName("Мои записи");
         menu13.setRoleId(roleClient);
 

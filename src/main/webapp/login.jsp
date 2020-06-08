@@ -80,9 +80,9 @@ body {
   <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" value="client1@mail.ru" required autofocus>
+  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" value="mentor1@mail.ru" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" value="client1" required>
+  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" value="mentor1" required>
   <div class="checkbox mb-3">
     <label>
       <!-- <input type="checkbox" value="remember-me"> -->

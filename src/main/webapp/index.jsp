@@ -32,7 +32,7 @@
     </ul>
 
 
-      <a href="exit"><button class="btn btn-secondary my-2 my-sm-0" type="submit">Выход</button></a>
+      <%@ include file="menu.jsp" %>
 
   </div>
 </nav>
