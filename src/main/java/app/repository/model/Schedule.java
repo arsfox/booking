@@ -5,6 +5,7 @@ public class Schedule {
     private String id;
     private Client client;
     private Mentor mentor;
+    private String TimeslotID;
     private long start;
     private long end;
     private String title;
@@ -32,6 +33,14 @@ public class Schedule {
 
     public void setMentor(Mentor mentor) {
         this.mentor = mentor;
+    }
+
+    public String getTimeslotID() {
+        return TimeslotID;
+    }
+
+    public void setTimeslotID(String timeslotID) {
+        TimeslotID = timeslotID;
     }
 
     public long getStart() {

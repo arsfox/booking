@@ -8,7 +8,7 @@ public class Timeslot {
     private int dayOfWeek;
     private long start;
     private long end;
-    private Mentor mentor;
+    private String mentorID;
     private int duration;
 
     public String getId() {
@@ -43,12 +43,12 @@ public class Timeslot {
         this.end = end;
     }
 
-    public Mentor getMentor() {
-        return mentor;
+    public String getMentor() {
+        return mentorID;
     }
 
-    public void setMentor(Mentor mentor) {
-        this.mentor = mentor;
+    public void setMentor(String mentorID) {
+        this.mentorID = mentorID;
     }
 
     public int getDuration() {

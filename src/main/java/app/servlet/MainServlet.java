@@ -36,6 +36,7 @@ public class MainServlet extends HttpServlet {
 
         resp.setContentType("text/html");
         req.setAttribute("menu", menuItems);
+        req.setAttribute("user", user);
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 

@@ -5,10 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Loader {
 
@@ -16,12 +15,38 @@ public class Loader {
 
 
     public static void main(String[] args) {
+
+
+        long start = 1598115600L;
+//        long endTimestamp = now + (15 * 60);
+//        System.out.println(endTimestamp);
+
+//        long duration = 900;
+//
+//        for (int i = 1; i < 6; i++) {
+//            for (int m = 0; m < 8; m++) {
+//                long startSlot = start;
+//                long endSlot = startSlot + duration;
+//                start += duration;
+//            }
+//            start += 79200;
+//        }
+
+
         loadSettings();
         List<Role> roles = loadRole();
-//        List<Mentor> mentors = loadMentors(roles);
-//        List<Client> clients = loadClients(roles);
+  //      List<Mentor> mentors = loadMentors(roles);
+  //      List<Client> clients = loadClients(roles);
         loadUsers(roles);
         loadMenu(roles);
+    }
+
+    private static void showTime(long time) {
+        LocalDateTime triggerTime =
+                LocalDateTime.ofInstant(Instant.ofEpochSecond(time),
+                        TimeZone.getDefault().toZoneId());
+
+        System.out.println(triggerTime);
     }
 
     private static void loadMenu(List<Role> roles) {
@@ -67,12 +92,12 @@ public class Loader {
         menu11.setRoleId(roleClient);
 
         Menu menu12 = new Menu();
-        menu12.setUrl("");
+        menu12.setUrl("book");
         menu12.setName("Записаться");
         menu12.setRoleId(roleClient);
 
         Menu menu13 = new Menu();
-        menu13.setUrl("");
+        menu13.setUrl("bookings");
         menu13.setName("Мои записи");
         menu13.setRoleId(roleClient);
 
@@ -122,6 +147,8 @@ public class Loader {
         user2.setLogin("mentor2@mail.ru");
         user2.setPassword("mentor2");
         user2.setRole(roleMentor);
+
+        loadSchedule(new String[] {user1.getId(), user2.getId()});
 
         User user3 = new User();
         user3.setId(UUID.randomUUID().toString());
@@ -242,6 +269,40 @@ public class Loader {
         saveToFile("/files/settings.json", settings);
     }
 
+    public static void loadSchedule(String[] mentorIDs) {
+        List<Timeslot> timeslots = new ArrayList<>();
+
+        long start = 1598115600L;
+
+        long duration = 900;
+
+        for (String mentorID : mentorIDs) {
+
+            for (int i = 1; i < 6; i++) {
+                for (int m = 0; m < 8; m++) {
+                Timeslot timeslot = new Timeslot();
+                timeslot.setId(UUID.randomUUID().toString());
+                timeslot.setDayOfWeek(i);
+                timeslot.setMentor(mentorID);
+                timeslot.setDuration(15);
+
+                long startSlot = start;
+                long endSlot = startSlot + duration;
+
+                timeslot.setStart(startSlot);
+                timeslot.setEnd(endSlot);
+
+                start += duration;
+                start += 79200;
+
+                timeslots.add(timeslot);
+                }
+            }
+
+        }
+        saveToFile("/files/timeslot.json", timeslots);
+
+    }
 
 
     private static <T> void saveToFile(String path, T data){

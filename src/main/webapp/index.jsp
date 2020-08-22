@@ -31,7 +31,11 @@
       </c:forEach>
     </ul>
 
-
+       <div class="form-inline mt-2 mt-md-0">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+            ${user.login}
+        </a>
+      </div>
       <%@ include file="menu.jsp" %>
 
   </div>

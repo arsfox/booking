@@ -15,10 +15,11 @@ import java.io.PrintWriter;
 public class ExitServlet extends HttpServlet  {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        resp.sendRedirect(req.getContextPath() + "/login");
+        resp.setContentType("text/html");
+        req.getRequestDispatcher("logout.jsp").forward(req, resp);
     }
 
 }
